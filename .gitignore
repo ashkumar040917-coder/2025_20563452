@@ -74,6 +74,8 @@ build/
 Build/
 
 build-*/
+
+html/
  
 # CMake generated files
 
