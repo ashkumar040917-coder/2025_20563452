@@ -19,9 +19,9 @@ ModelPart::ModelPart(const QList<QVariant>& data, ModelPart* parent)
     : m_itemData(data), m_parentItem(parent) {
 
     // Step 9.4: Initialise colour and visibility defaults
-    red = 255;
-    green = 255;
-    blue = 255;
+    red = 0;
+    green = 0;
+    blue = 0;
     isVisible = true;
 }
 
