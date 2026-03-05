@@ -4,13 +4,12 @@
 #include <QMainWindow>
 #include <QTreeView>
 #include <QFileDialog>
-#include <QMessageBox>
+#include <QFileInfo>
 #include <QStatusBar>
-
 #include <vtkSmartPointer.h>
 #include <vtkRenderer.h>
 #include <vtkGenericOpenGLRenderWindow.h>
-
+#include <vtkActor.h>
 #include "ModelPart.h"
 #include "ModelPartList.h"
 
@@ -23,8 +22,10 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
+    void updateRender();
+    void updateRenderFromTree(const QModelIndex& index);
 
 public slots:
     void handleButton1();
@@ -37,11 +38,10 @@ signals:
     void statusUpdateMessage(const QString& message, int timeout);
 
 private:
-    Ui::MainWindow *ui;
-    ModelPartList *partList;
-
+    Ui::MainWindow* ui;
+    ModelPartList* partList;
     vtkSmartPointer<vtkRenderer> renderer;
     vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow;
 };
 
-#endif // MAINWINDOW_H
+#endif
